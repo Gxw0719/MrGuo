@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍 | 我的个人网站</title>
+    <!-- 引入Tailwind CSS用于快速样式开发 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // 主色调（蓝色）
+                        secondary: '#1f2937', // 辅助色（深灰）
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-padding {
+                padding: clamp(3rem, 8vw, 6rem) 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-primary font-bold text-xl">我的个人主页</a>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors">关于我</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary transition-colors">技能</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">联系方式</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-gray-700 hover:text-primary">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#about" class="block text-gray-700 hover:text-primary transition-colors">关于我</a>
+                <a href="#skills" class="block text-gray-700 hover:text-primary transition-colors">技能</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary transition-colors">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区（头部） -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- 头像 -->
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img src="https://picsum.photos/400/400" alt="个人头像" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- 个人简介 -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-4 text-shadow"></h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-6">前端开发工程师 | 热爱技术与创新</p>
+                    <p class="max-w-xl text-gray-700 mb-8 leading-relaxed">
+                        拥有3年Web开发经验，专注于用户体验和前端性能优化，擅长使用现代前端技术构建高效、美观的网站和应用。
+                        喜欢学习新技术，乐于分享知识，追求代码的优雅和可维护性。
+                    </p>
+                    <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                        联系我 <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">关于我</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 基本信息 -->
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-user text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">基本信息</h3>
+                                <p class="text-gray-600">年龄：20岁 | 所在地：徐州</p>
+                                <p class="text-gray-600">学历：专科 | 专业：计算机网络技术</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-briefcase text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">工作经历</h3>
+                                <p class="text-gray-600">2020-至今：XX科技有限公司 - 前端开发工程师</p>
+                                <p class="text-gray-600">2018-2020：XX互联网公司 - 前端开发实习生</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 个人描述 -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-3">个人简介</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            我是一名热衷于前端开发的工程师，对用户界面和交互体验有执着的追求。
+                            熟悉各种前端框架和工具，能够独立完成从设计到开发的全流程工作。
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            除了编程之外，我喜欢旅行、阅读和摄影，这些爱好让我保持开放的思维和创造力。
+                            我相信技术的价值在于解决实际问题，始终保持学习的热情和对新技术的好奇心。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能部分 -->
+    <section id="skills" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">我的技能</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 技能卡片1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">HTML & CSS</h3>
+                    <p class="text-gray-600 mb-3">精通HTML5语义化标签，熟练使用CSS3、Flexbox、Grid布局，掌握响应式设计原则。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <!-- 技能卡片2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">JavaScript</h3>
+                    <p class="text-gray-600 mb-3">熟练掌握ES6+语法，了解异步编程、闭包等核心概念，能够编写高效的JavaScript代码。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <!-- 技能卡片3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">React</h3>
+                    <p class="text-gray-600 mb-3">熟练使用React框架开发单页应用，熟悉Hooks、Redux等生态系统，了解性能优化方法。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <!-- 技能卡片4 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Git & 工程化</h3>
+                    <p class="text-gray-600 mb-3">熟练使用Git进行版本控制，了解Webpack/Vite等构建工具，具备工程化思维。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <!-- 技能卡片5 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">移动端开发</h3>
+                    <p class="text-gray-600 mb-3">熟悉移动端适配方案，了解小程序开发流程，能够开发适配多端的响应式页面。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <!-- 技能卡片6 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-design"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">UI/UX 设计</h3>
+                    <p class="text-gray-600 mb-3">具备基本的UI设计能力，了解用户体验设计原则，能够将设计稿高质量还原为代码。</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">联系我</h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <!-- 联系信息 -->
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">邮箱</h3>
+                            <p class="text-gray-600">19703330579@163.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mr-4">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">电话</h3>
+                            <p class="text-gray-600">197-0333-0579</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mr-4">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">GitHub</h3>
+                            <p class="text-gray-600">github.com/zhangsan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mr-4">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">微信</h3>
+                            <p class="text-gray-600">GXW_050719</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <h3 class="font-bold text-xl mb-4">发送消息</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="请输入您的邮箱">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors resize-none" placeholder="请输入您想对我说的话"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                            发送消息 <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-secondary text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">&copy; 2025 张三 - 个人网站 保留所有权利</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-primary/80 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-primary/80 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-primary/80 transition-colors"><i class="fab fa-weibo text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 表单提交处理
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !email || !message) {
+                alert('请填写完整的表单信息！');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('感谢您的留言，我会尽快回复您！');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
